@@ -5,6 +5,7 @@
 # tab ::: [6, 17, 13, 5, 15, 9, 23, 25, 3, 11, 1, 7, 19, 17, 13]
 
 tab = []
+tabMessage = []
 def creationCleSecondaire (a, b, u, modulo):
     
     if(len(tab) < 15):
@@ -49,11 +50,11 @@ def desSimplifie(message, cle):
             
 
     for i in range (len(partieGauche)):
-        partieGauche[i] = chr(     ord(partieGauche[i])    +   ord(tabCle[i])   ) 
+        partieGauche[i] = chr(    (ord(partieGauche[i])    +   ord(tabCle[i]) )%255  ) 
         messageInverse = partieDroite + partieGauche
     
     maString = "".join(messageInverse)
-    print(maString)
+    #print(maString)
 
     return   maString
    
@@ -98,8 +99,14 @@ def desMessageLong(message, cle):
             desSimplifie(message,cle)
 
     
-    else:  
-        print("error")  
+    else:
+        while(len(tabMessage) % 8 != 0):
+            tabMessage.append(" ")
+        
+        print("".join(tabMessage))
+        a =  "".join(tabMessage)
+        return desMessageLong(a, cle)
+
 
 
 
@@ -108,8 +115,7 @@ def desMessageLong(message, cle):
 
 def desFinal(message, cle,nbRep):
 
-    if(nbRep == 0):
-        print(message)
+        #print(message)
 
     messageFinal = desMessageLong(message,cle)
     i = 0
@@ -123,9 +129,12 @@ def desFinal(message, cle,nbRep):
 
 
 #desSimplifie("aaaaaaaa" , "abcd")
-#desFinal("aaaaaaaaaaaaaaaa","ijkl",8)
+desFinal("Je mappelle Simon et je temmerd","ijkl",15)
 
         
+
+
+
 
 '''print(ord("Â") - ord("a"))
 print(ord("Ã") - ord("b"))
@@ -134,3 +143,4 @@ print(ord("Å") - ord("d"))
 
 
 print(chr(97))'''
+
