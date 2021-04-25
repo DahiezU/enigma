@@ -1,4 +1,4 @@
-
+# Burdy Simon Ulysse Dahiez 
 # clé principale : a = 3, b = 4 , u0 = 7
 
 # clé principale : a = 2, b = 5 , u0 = 6
